@@ -1,0 +1,32 @@
+version: '2'
+services:
+  node:
+    build:
+      context: .
+      dockerfile: "node.dockerfile"
+    volumes:
+      - "./:/app"
+    ports:
+      - "3000:3000"
+    # links:
+    #   - "db:redis"
+    command: forever server.js
+  db:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: db
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    ports: 
+      - "3306:3306"
+    volumes:
+     - data:/var/lib/mysql
+    networks:
+     - appnet
+networks:
+  appnet:
+    driver: "bridge"
+volumes:
+  data:
+    driver: "local"
