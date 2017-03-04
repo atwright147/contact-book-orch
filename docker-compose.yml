@@ -10,7 +10,7 @@ services:
 
     ports:
       - "3000:3000"
-    command: forever server.js
+    command: "nodemon --legacy-watch server.js"
   db:
     image: mysql:latest
     environment:

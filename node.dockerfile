@@ -3,14 +3,12 @@ FROM node:6.9.1
 
 ADD ./package.json /app/package.json
 
-RUN npm install -g forever --silent --progress=false && \
-    npm install --silent --progress=false
-
 WORKDIR /app
 
 # package.json changes will require image rebuild
-RUN npm install
+RUN npm install -g nodemon --silent --progress=false && \
+    npm install --silent --progress=false
 
 EXPOSE 3000
 
-CMD ["forever", "server.js"]
+# CMD ["nodemon", "--legacy-watch", "/app/server.js"]
