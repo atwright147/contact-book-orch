@@ -6,6 +6,7 @@ app.get('/', function (req, res) {
 });
 
 app.get('/data', function (req, res) {
+    res.setHeader('Content-Type', 'application/json');
     res.send({
         "key1": "value1",
         "key2": "value2",
