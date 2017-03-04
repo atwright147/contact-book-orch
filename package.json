@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node ./server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
+    "docker:npm:install": "docker exec -i -t docker_node_1 /bin/bash -c 'npm i'",
     "docker:rm:volumes": "docker volume rm $(docker volume ls -q) -f",
     "docker:ls:volumes": "docker volume ls -q",
     "docker:rm:images": "docker rmi $(docker images -a -q) -f",
