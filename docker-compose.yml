@@ -7,23 +7,23 @@ services:
     volumes:
       - .:/app
       - /app/node_modules  # http://jdlm.info/articles/2016/03/06/lessons-building-node-app-docker.html
-
     ports:
       - "3000:3000"
     command: "nodemon --legacy-watch server.js"
+    env_file:
+      - ./common.env
+
   db:
     image: mysql:latest
-    environment:
-      MYSQL_ROOT_PASSWORD: password
-      MYSQL_DATABASE: db
-      MYSQL_USER: user
-      MYSQL_PASSWORD: password
     ports: 
       - "3306:3306"
     volumes:
      - data:/var/lib/mysql
     networks:
      - appnet
+    env_file:
+      - ./common.env
+
 networks:
   appnet:
     driver: "bridge"
