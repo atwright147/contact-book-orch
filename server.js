@@ -1,4 +1,4 @@
-var express = require('express');
+import express from 'express';
 var app = express();
 
 app.get('/', (req, res) => {
@@ -14,6 +14,6 @@ app.get('/data', (req, res) => {
     });
 });
 
-app.listen(3000, function () {
+app.listen(3000, () => {
     console.log('Example app listening on port 3000!');  // eslint-disable-line no-console
 });
