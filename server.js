@@ -1,5 +1,5 @@
 import express from 'express';
-var app = express();
+const app = express();
 
 app.get('/', (req, res) => {
     res.send('Hello World!');
