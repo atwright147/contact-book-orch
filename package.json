@@ -2,7 +2,7 @@
   "name": "docker",
   "version": "1.0.0",
   "description": "",
-  "main": "./server.js",
+  "main": "./src/index.js",
   "scripts": {
     "start": "./node_modules/babel-cli/bin/babel-node.js ./server.js",
     "test": "./node_modules/mocha/bin/mocha --compilers js:babel-core/register --watch",
