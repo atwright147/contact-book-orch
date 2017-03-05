@@ -4,8 +4,9 @@
   "description": "",
   "main": "./server.js",
   "scripts": {
-    "start": "node ./server.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "./node_modules/babel-cli/bin/babel-node.js ./server.js",
+    "test": "./node_modules/mocha/bin/mocha --compilers js:babel-core/register --watch",
+    "lint": "./node_modules/eslint/bin/eslint.js .",
     "docker:npm:install": "docker exec -i -t docker_node_1 /bin/bash -c 'npm i'",
     "docker:rm:volumes": "docker volume rm $(docker volume ls -q) -f",
     "docker:ls:volumes": "docker volume ls -q",
@@ -29,5 +30,17 @@
     "eslint": "^3.17.0",
     "mocha": "^3.2.0",
     "sinon": "^1.17.7"
+  },
+  "babel": {
+    "retainLines": true,
+    "presets": ["es2015", "es2016"]
+  },
+  "eslintConfig": {
+    "env": {
+      "node": true,
+      "es6": true,
+      "mocha": true
+    },
+    "extends": ["eslint:recommended"]
   }
 }
