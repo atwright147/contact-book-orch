@@ -1,11 +1,11 @@
 var express = require('express');
 var app = express();
 
-app.get('/', function (req, res) {
+app.get('/', (req, res) => {
     res.send('Hello World!');
 });
 
-app.get('/data', function (req, res) {
+app.get('/data', (req, res) => {
     res.setHeader('Content-Type', 'application/json');
     res.send({
         "key1": "value1",
