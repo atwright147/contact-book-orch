@@ -12,17 +12,23 @@ services:
     command: "nodemon --legacy-watch ./src/index.js --exec /app/node_modules/babel-cli/bin/babel-node.js"
     env_file:
       - ./common.env
+    depends_on:
+      - db
+    networks:
+      - appnet
 
   db:
     image: mysql:latest
     ports: 
       - "3306:3306"
     volumes:
-     - data:/var/lib/mysql
+      - data:/var/lib/mysql
     networks:
-     - appnet
+      - appnet
     env_file:
       - ./common.env
+    networks:
+      - appnet
 
 networks:
   appnet:
