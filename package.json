@@ -52,6 +52,9 @@
     ],
     "parserOptions": {
       "sourceType": "module"
+    },
+    "rules": {
+      "no-var": "warn"
     }
   }
 }
