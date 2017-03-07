@@ -1,0 +1,11 @@
+// this file is deliberately not ES6 because it cannot be transpiled
+
+const path = require('path');
+const folder = 'src';
+
+module.exports = {
+  "config": path.resolve(`./${folder}/config`, 'config.json'),
+  "models-path": path.resolve(`./${folder}/models`),
+  "seeders-path": path.resolve(`./${folder}/seeders`),
+  "migrations-path": path.resolve(`./${folder}/migrations`)
+};
