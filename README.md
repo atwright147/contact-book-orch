@@ -8,6 +8,7 @@
 docker-compose build
 docker-compose up -d
 docker-compose exec node /bin/bash -c 'sequelize db:migrate'
+docker-compose exec node /bin/bash -c 'sequelize db:seed:all'
 ```
 3. Browse to `localhost:3000` and you should see a very basic "Hello World!" page.
 4. View the database using **Sequel Pro** with the following settings (you should see three empty tables):
