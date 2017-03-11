@@ -10,7 +10,7 @@ export default (sequelize, DataTypes) => {
     }, {
         classMethods: {
             associate: function(models) {  // eslint-disable-line no-unused-vars
-                Users.belongsToMany(Groups, {through: 'users_groups'});
+                Users.belongsToMany(models.Groups, {through: 'users_groups'});
             }
         }
     });
