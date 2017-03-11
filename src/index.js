@@ -1,5 +1,7 @@
 import express from 'express';
-const models = require('./models');
+
+import User from './models/user'
+import Group from './models/group'
 
 const app = express();
 
@@ -20,10 +22,20 @@ app.get('/data', (req, res) => {
 
 app.get('/users', (req, res) => {
     res.setHeader('Content-Type', 'application/json');
-    // return Users
-    //     .all()
-    //     .then(users => res.status(200).send(users))
-    //     .catch(error => res.status(400).send(error));
+    User
+        .fetchAll()
+        .then(function(users) {
+            res.json({ users });
+        });
+});
+
+app.get('/groups', (req, res) => {
+    res.setHeader('Content-Type', 'application/json');
+    Group
+        .fetchAll()
+        .then(function(groups) {
+            res.json({ groups });
+        });
 });
 
 app.listen(3000, () => {

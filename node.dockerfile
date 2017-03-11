@@ -1,12 +1,12 @@
 # Development
-FROM node:6.9.1
+FROM node:boron
 
 ADD ./package.json /app/package.json
 
 WORKDIR /app
 
 # package.json changes will require image rebuild
-RUN npm install -g nodemon sequelize sequelize-cli mysql --silent --progress=false && \
+RUN npm install -g nodemon knex bookshelf mysql --silent --progress=false && \
     npm install --silent --progress=false
 
 EXPOSE 3000
