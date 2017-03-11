@@ -1,5 +1,5 @@
 import express from 'express';
-import db from './models/index';
+const models = require('./models');
 
 const app = express();
 
@@ -18,14 +18,12 @@ app.get('/data', (req, res) => {
     });
 });
 
-app.get('/db', (req, res) => {
-    db.sequelize
-        .authenticate()
-        .then(() => {
-            res.send('Connection has been established successfully.');
-        }, (err) => { 
-            res.send('Unable to connect to the database:', err);
-        });
+app.get('/users', (req, res) => {
+    res.setHeader('Content-Type', 'application/json');
+    // return Users
+    //     .all()
+    //     .then(users => res.status(200).send(users))
+    //     .catch(error => res.status(400).send(error));
 });
 
 app.listen(3000, () => {
