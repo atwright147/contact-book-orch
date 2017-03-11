@@ -38,6 +38,25 @@ app.get('/groups', (req, res) => {
         });
 });
 
+app.get('/users_groups', (req, res) => {
+    res.setHeader('Content-Type', 'application/json');
+    User
+        .forge().fetch({withRelated: ['groups']})
+        .then(function (collection) {
+            res.send(collection.toJSON());
+        });
+});
+
+app.get('/groups_users', (req, res) => {
+    res.setHeader('Content-Type', 'application/json');
+    Group
+        .forge().fetch({withRelated: ['users']})
+        .then(function (collection) {
+            res.send(collection.toJSON());
+        });
+});
+
+
 app.listen(3000, () => {
     console.log('Example app listening on port 3000!');  // eslint-disable-line no-console
 });
