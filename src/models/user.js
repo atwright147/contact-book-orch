@@ -1,5 +1,5 @@
 import bookshelf from '../../bookshelf';
-import Group from './groups';
+import Group from './group';
 
 const User = bookshelf.Model.extend({
     tableName: 'users',
