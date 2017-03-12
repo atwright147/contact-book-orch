@@ -4,6 +4,8 @@ import bodyParser from 'body-parser';
 import User from './models/user'
 import Group from './models/group'
 
+import usersController from './controllers/users';
+
 const app = express();
 
 app.use(bodyParser.json());
@@ -22,30 +24,11 @@ app.get('/data', (req, res) => {
     });
 });
 
-app.get('/users', (req, res) => {
-    res.setHeader('Content-Type', 'application/json');
-    User
-        .fetchAll()
-        .then(function(users) {
-            res.json({ users });
-        });
-});
-
-app.post('/user', (req, res) => {
-    new User({
-        firstName: req.body.firstName,
-        lastName: req.body.lastName,
-        email: req.body.email,
-        password: req.body.password,
-        active: 1
-    })
-    .save()
-    .then((saved) => {
-        res.json({ saved });
-    }).catch((err) => {
-        res.json(err);
-    });
-});
+app.get('/users', usersController.listAll);
+app.get('/user/:id', usersController.list);
+app.post('/user', usersController.create);
+app.put('/user', usersController.update);
+app.delete('/user', () => { console.log('here') });
 
 app.get('/groups', (req, res) => {
     res.setHeader('Content-Type', 'application/json');
