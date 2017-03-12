@@ -28,7 +28,7 @@ app.get('/users', usersController.listAll);
 app.get('/user/:id', usersController.list);
 app.post('/user', usersController.create);
 app.put('/user', usersController.update);
-app.delete('/user', () => { console.log('here') });
+app.delete('/user/:id', usersController.destroy);
 
 app.get('/groups', (req, res) => {
     res.setHeader('Content-Type', 'application/json');

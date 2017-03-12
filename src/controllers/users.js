@@ -74,7 +74,7 @@ const usersController = {
      */
     destroy: (req, res) => (
         User
-            .where('id', req.params.id)
+            .where('id', Number(req.params.id))
             .destroy()
             .then(result => res.json(result))
             .catch(error => res.status(400).send(error))
