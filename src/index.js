@@ -1,10 +1,12 @@
 import express from 'express';
+import bodyParser from 'body-parser';
 
 import User from './models/user'
 import Group from './models/group'
 
 const app = express();
 
+app.use(bodyParser());
 app.use(express.static(__dirname + '/public'));
 
 app.get('/', (req, res) => {
@@ -27,6 +29,22 @@ app.get('/users', (req, res) => {
         .then(function(users) {
             res.json({ users });
         });
+});
+
+app.post('/user', (req, res) => {
+    new User({
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        email: req.body.email,
+        password: req.body.password,
+        active: 1
+    })
+    .save()
+    .then((saved) => {
+        res.json({ saved });
+    }).catch((err) => {
+        res.json(err);
+    });
 });
 
 app.get('/groups', (req, res) => {
