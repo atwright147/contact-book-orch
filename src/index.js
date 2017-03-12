@@ -6,7 +6,7 @@ import Group from './models/group'
 
 const app = express();
 
-app.use(bodyParser());
+app.use(bodyParser.json());
 app.use(express.static(__dirname + '/public'));
 
 app.get('/', (req, res) => {
