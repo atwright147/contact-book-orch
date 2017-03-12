@@ -5,7 +5,7 @@ exports.seed = function(knex, Promise) {
     .then(function () {
       // Inserts seed entries
       return knex('groups').insert([
-        {id: 1, name: 'group1', active: 1},
+        {id: 1, name: 'group1', active: 1, created_at: knex.fn.now(), updated_at: knex.fn.now()},
       ]);
     });
 };
