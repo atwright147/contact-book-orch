@@ -59,7 +59,8 @@ const usersController = {
                     .save({
                         firstName: req.body.firstName,
                         lastName: req.body.lastName,
-                        emailAddress: req.body.emailAddress,
+                        email: req.body.email,
+                        password: req.body.password,
                     })
                     .then(result => res.json(result))
                     .catch(error => res.status(400).send(error))
