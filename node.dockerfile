@@ -10,5 +10,6 @@ RUN npm install -g nodemon knex bookshelf mysql --silent --progress=false && \
     npm install --silent --progress=false
 
 EXPOSE 3000
+EXPOSE 5858
 
 # CMD ["nodemon", "--legacy-watch", "/app/server.js"]

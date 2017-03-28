@@ -9,7 +9,8 @@ services:
       - /app/node_modules  # http://jdlm.info/articles/2016/03/06/lessons-building-node-app-docker.html
     ports:
       - "3000:3000"
-    command: "nodemon ./src/index.js --exec /app/node_modules/babel-cli/bin/babel-node.js"
+      - "5858:5858"
+    command: "nodemon ./src/index.js --debug --exec /app/node_modules/babel-cli/bin/babel-node.js"
     env_file:
       - ./common.env
     depends_on:
