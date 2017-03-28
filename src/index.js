@@ -5,6 +5,7 @@ import User from './models/user'
 import Group from './models/group'
 
 import usersController from './controllers/users';
+import groupsController from './controllers/groups';
 
 const app = express();
 
@@ -15,29 +16,17 @@ app.get('/', (req, res) => {
     res.send('Hello World!');
 });
 
-app.get('/data', (req, res) => {
-    res.setHeader('Content-Type', 'application/json');
-    res.send({
-        "key1": "value1",
-        "key2": "value2",
-        "key3": "value3"
-    });
-});
-
 app.get('/users', usersController.listAll);
 app.get('/user/:id', usersController.list);
 app.post('/user', usersController.create);
 app.put('/user', usersController.update);
 app.delete('/user/:id', usersController.destroy);
 
-app.get('/groups', (req, res) => {
-    res.setHeader('Content-Type', 'application/json');
-    Group
-        .fetchAll()
-        .then(function(groups) {
-            res.json({ groups });
-        });
-});
+app.get('/groups', groupsController.listAll);
+app.get('/group/:id', groupsController.list);
+app.post('/group', groupsController.create);
+app.put('/group', groupsController.update);
+app.delete('/group/:id', groupsController.destroy);
 
 app.get('/users_groups', (req, res) => {
     res.setHeader('Content-Type', 'application/json');
