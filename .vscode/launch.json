@@ -18,7 +18,7 @@
 			"port": 5858,
 			"restart": true,
 			"sourceMaps": false,
-			"localRoot": "${workspaceRoot}/src/",
+			"localRoot": "${workspaceRoot}/",
 			"remoteRoot": "/app/"
 		}
 	]
