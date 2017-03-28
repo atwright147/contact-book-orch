@@ -15,7 +15,11 @@
 			"request": "attach",
 			"name": "Attach to Process",
 			"address": "localhost",
-			"port": 5858
+			"port": 5858,
+			"restart": true,
+			"sourceMaps": false,
+			"localRoot": "${workspaceRoot}/src/",
+			"remoteRoot": "/app/"
 		}
 	]
 }
