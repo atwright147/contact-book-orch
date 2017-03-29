@@ -1,5 +1,3 @@
-import knex from 'knex';
-import bookshelf from 'bookshelf';
 import User from '../models/user';
 
 const usersController = {

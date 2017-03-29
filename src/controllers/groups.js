@@ -1,5 +1,3 @@
-import knex from 'knex';
-import bookshelf from 'bookshelf';
 import Group from '../models/group';
 
 const groupsController = {
