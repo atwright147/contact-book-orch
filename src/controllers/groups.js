@@ -2,8 +2,6 @@ import knex from 'knex';
 import bookshelf from 'bookshelf';
 import Group from '../models/group';
 
-console.log(Group);
-
 const groupsController = {
     /**
      * List all users the user is in groups with
