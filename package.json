@@ -31,6 +31,7 @@
     "chai": "^3.5.0",
     "chai-http": "^3.0.0",
     "eslint": "^3.17.0",
+    "faker": "^4.1.0",
     "mocha": "^3.2.0",
     "nodemon": "^1.11.0",
     "sequelize-cli": "^2.5.1",
