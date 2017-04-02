@@ -1,5 +1,6 @@
 import express from 'express';
 import bodyParser from 'body-parser';
+import cors from 'cors';
 
 import User from './models/user'
 import Group from './models/group'
@@ -9,6 +10,7 @@ import groupsController from './controllers/groups';
 
 const app = express();
 
+app.use(cors())
 app.use(bodyParser.json());
 app.use(express.static(__dirname + '/public'));
 
