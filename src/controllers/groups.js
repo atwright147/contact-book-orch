@@ -6,7 +6,7 @@ const groupsController = {
      */
     list: (req, res) => (
         Group
-            .where('id', req.params.id)
+            .where('id', Number(req.params.id))
             .fetch({withRelated: ['users']})
             .then(result => res.status(200).json(result))
             .catch(error => res.status(400).send(error))
