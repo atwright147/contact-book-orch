@@ -9,6 +9,7 @@ exports.seed = function(knex, Promise) {
                 seedData.push({
                     firstName: faker.name.firstName(),
                     lastName: faker.name.lastName(),
+                    avatar: faker.internet.avatar(),
                     email: faker.internet.exampleEmail(),
                     password: 'password',
                     active: faker.random.number(100) > 30 ? 1 : 0,
