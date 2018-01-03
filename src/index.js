@@ -1,6 +1,8 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
+import passport from 'passport';
+import { LocalStrategy as Strategy } from 'passport-local';
 
 import User from './models/user'
 import Group from './models/group'
@@ -11,6 +13,13 @@ import groupsController from './controllers/groups';
 const app = express();
 
 app.use(cors())
+app.use(passport.initialize());
+app.use(passport.session());
+
+passport.use(new LocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
 app.use(bodyParser.json());
 app.use(express.static(__dirname + '/public'));
 
