@@ -6,7 +6,7 @@ After=network.target
 Type=simple
 User=andy
 WorkingDirectory=/home/andy/contact-book-orch
-ExecStart=/usr/bin/node /home/andy/contact-book-orch/server.js
+ExecStart=/usr/bin/node /home/andy/contact-book-orch/src/index.js
 Restart=always
 # Restart service after 10 seconds if node service crashes
 RestartSec=10
