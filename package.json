@@ -7,6 +7,7 @@
     "start": "./node_modules/babel-cli/bin/babel-node.js ./server.js",
     "test": "./node_modules/mocha/bin/mocha --compilers js:babel-core/register --watch",
     "lint": "./node_modules/eslint/bin/eslint.js .",
+    "build": "babel src -d dist",
     "docker:npm:install": "docker exec -i -t docker_node_1 /bin/bash -c 'npm i'",
     "docker:rm:volumes": "docker volume rm $(docker volume ls -q) -f",
     "docker:ls:volumes": "docker volume ls -q",
