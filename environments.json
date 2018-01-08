@@ -1,0 +1,10 @@
+{
+    "development": {
+        "DB_HOST": "balance-db01",
+        "DB_DATABASE": "db",
+        "DB_USERNAME": "user",
+        "DB_PASSWORD": "password"
+    },
+    "staging": {},
+    "production": {}
+}
