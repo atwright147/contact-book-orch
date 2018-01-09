@@ -6,7 +6,7 @@ pipeline {
             steps {
                 git branch: 'feature/build',
                 url: 'git@github.com:atwright147/contact-book-orch.git',
-                credentialsId: '21505277-19ab-49dd-94e0-5294364b9d7a'
+                credentialsId: 'github-ssh--contact-book-orch'
             }
         }
         stage('Install') {
@@ -16,7 +16,9 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh 'npm run build' 
+                sh 'npm run build'
+                sh './generateScriptStartup.js development'
+                sh './generateScriptMigrations.js development'
             }
         }
         stage ('Deploy to web01') {
