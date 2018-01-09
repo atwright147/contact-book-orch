@@ -11,10 +11,10 @@ module.exports = {
         database: process.env.MYSQL_DATABASE
     },
     migrations: {
-      directory: `./${appFolder}/migrations`
+        directory: `./${appFolder}/migrations`
     },
     seeds: {
-      directory: `./${appFolder}/seeds`
+        directory: `./${appFolder}/seeds`
     },
     useNullAsDefault: true,
 };
