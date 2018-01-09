@@ -8,6 +8,6 @@ const env = process.argv[2] || 'production';
 
 const template = `#!/usr/bin/env sh
 
-NODE_ENV=${env} ${objectToEnvString(envs[env])} node ./node_modules/.bin/knex migrate:latest`;
+NODE_ENV=${env} ${objectToEnvString(envs[env])} node index.js`;
 
 fs.writeFileSync('./dist/startup.sh', template, { encoding: 'UTF-8', mode: '766' });
