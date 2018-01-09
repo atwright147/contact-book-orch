@@ -10,4 +10,4 @@ const template = `#!/usr/bin/env sh
 
 NODE_ENV=${env} ${objectToEnvString(envs[env])} node start.js`;
 
-fs.writeFileSync('./dist/startup.sh', template, { encoding: 'UTF-8', mode: '766' });
+fs.writeFileSync('./dist/migrate.sh', template, { encoding: 'UTF-8', mode: '766' });
