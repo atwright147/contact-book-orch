@@ -1,6 +1,6 @@
 # Contact-Book Orchestration
 
-##Getting Started
+## Getting Started
 
 1. Clone this repo into a folder
 2. From that folder run: 
